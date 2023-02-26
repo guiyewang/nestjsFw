@@ -12,6 +12,8 @@
   },
   "moduleNameMapper": {
     "DB/mysql-db/(.*)": "<rootDir>/../libs/mysql-db/src/$1",
-    "DB/mysql-db": "<rootDir>/../libs/mysql-db/src"
+    "DB/mysql-db": "<rootDir>/../libs/mysql-db/src",
+    "websocket/websocket/(.*)": "<rootDir>/../libs/websocket/src/$1",
+    "websocket/websocket": "<rootDir>/../libs/websocket/src"
   }
 }

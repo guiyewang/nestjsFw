@@ -23,6 +23,12 @@
       ],
       "DB/mysql-db/*": [
         "libs/mysql-db/src/*"
+      ],
+      "websocket/websocket": [
+        "libs/websocket/src"
+      ],
+      "websocket/websocket/*": [
+        "libs/websocket/src/*"
       ]
     }
   }

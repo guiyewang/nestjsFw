@@ -20,6 +20,8 @@ export class UserController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
+
+
     //去除空格
     return this.userService.findOne(+id);
   }

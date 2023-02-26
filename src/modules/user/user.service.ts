@@ -41,6 +41,7 @@ export class UserService {
   async findOne(id: number) {
 
     try {
+      
       const user = await this.userTy.findOneBy({ id : id})
       return user;
     } catch (error) {
