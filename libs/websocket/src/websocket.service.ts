@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { MessageBody, OnGatewayConnection, OnGatewayDisconnect, OnGatewayInit, SubscribeMessage, WebSocketGateway, WebSocketServer, WsResponse } from '@nestjs/websockets';
 import { from, map, Observable } from 'rxjs';
-import { Server, Socket } from 'socket.io';
-
+import { Server } from 'socket.io';
 
 
 @WebSocketGateway(3001,{
+    transports: ["websocket"],
     allowEIO3: true,
-    transports: ['websocket'],
   cors: {
     origin: '*',
     credentials: true
@@ -15,27 +14,28 @@ import { Server, Socket } from 'socket.io';
 })
 @Injectable()
 export class WebsocketService implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
+  
+  @WebSocketServer()
+  server: Server;
+
+
+
 
     //初始化
     afterInit(server: Server) {
-        console.log("初始化");
+      
+        console.log("初始化"+server);
         
     }
 
-    //链接成功
-    handleConnection(client: Socket, ...args: any[]) {
-        console.log("连接成功");
+    handleConnection(client: any, ...args: any[]) {
+      console.log("初始化s"+this.server.path);
     }
-
-    //断开连接
-    handleDisconnect(client: Socket) {
-        console.log("断开连接");
+    handleDisconnect(client: any) {
+      console.log("初始化sa");
     }
 
 
-    @WebSocketServer()
-    server: Server;
-  
     @SubscribeMessage('events')
     findAll(@MessageBody() data: any): Observable<WsResponse<number>> {
       return from([1, 2, 3]).pipe(map(item => ({ event: 'events', data: item })));
