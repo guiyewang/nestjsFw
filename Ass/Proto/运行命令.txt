@@ -1,0 +1,2 @@
+CS  protoc.exe -I=./Proto/ --csharp_out=./Script/CS/ ./Proto/EL/EL.Transfrom.Change.proto
+JS   protoc.exe -I=./Proto/ --js_out=./Script/CS/ ./Proto/EL/EL.Transfrom.Change.proto
