@@ -4,45 +4,31 @@ package El.library.Proto;
 
 
 //物体位置大小旋转变化
-message transfromChange{
-    positionChange pos = 1;
-    rotationChange rot = 2;
-    scaleChange scale = 3;
+message TransfromChange{
+    PositionChange pos = 1;
+    RotationChange rot = 2;
+    ScaleChange scale = 3;
 }
 
-//物体位置大小旋转变化-四元数
-message transfromQuaternionChange{
-    positionChange pos = 1;
-    rotationChange rot = 2;
-    scaleChange scale = 3;
-}
 
 //位置变化
-message positionChange{
+message PositionChange{
     float x =1;
     float y =2;
     float z =3;
 }
 
 //旋转变化
-message rotationChange{
+message RotationChange{
     float x =1;
     float y =2;
     float z =3;
 
 }
 
-//四元数变化
-message quaternionChange{
-    float x =1;
-    float y =2;
-    float z =3;
-    float w =4;
-
-}
 
 //缩放变化
-message scaleChange{
+message ScaleChange{
     float x =1;
     float y =2;
     float z =3;

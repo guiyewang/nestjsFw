@@ -51,7 +51,7 @@ handleDisconnect(client: Socket) {
       return from([1, 2, 3]).pipe(map(item => ({ event: 'events', data: item })));
     }
   
-    @SubscribeMessage('TransfromObj')
+    @SubscribeMessage('TRO')
     async identity( @ConnectedSocket() client: Socket,@MessageBody() data: string) {
       console.log(data);
       await client;
