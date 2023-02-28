@@ -36,6 +36,7 @@
     "protobufjs": "^7.2.2",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
+    "socket.io": "^3.1.2",
     "stacktrace-js": "^2.0.2",
     "typeorm": "^0.3.12"
   },
