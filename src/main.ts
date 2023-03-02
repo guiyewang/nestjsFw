@@ -5,10 +5,13 @@ import { TransformInterceptor } from './interceptor/logger/logger.interceptor';
 import { LoggerMiddleware } from './middleware/logger/logger.middleware';
 
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { MicroserviceOptions } from '@nestjs/microservices';
+import { grpcClientOptions } from './grpc-client.options';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  //app.enableCors();
+  //添加微服务
+  app.connectMicroservice<MicroserviceOptions>(grpcClientOptions);
 
   // 监听所有的请求路由，并打印日志
   app.use(new LoggerMiddleware().use);
@@ -16,7 +19,6 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TransformInterceptor());
 
   //app.enableCors(corsOptionsDelegate);
-
   //app.setGlobalPrefix('overall-situation');//全局路由前缀
 
   //API

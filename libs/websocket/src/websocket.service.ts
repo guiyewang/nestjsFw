@@ -21,27 +21,27 @@ import { Server, Socket } from 'socket.io';
 export class WebsocketService implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
 
 
-  @WebSocketServer()
-  server: Server;
+      @WebSocketServer()
+      server: Server;
 
-  //初始化
-  afterInit(server: Server) {
-    console.log("初始化");
-    
-}
+      //初始化
+      afterInit(server: Server) {
+        console.log("初始化");
+        
+    }
 
-//链接成功
-handleConnection(client: Socket, ...args: any[]) {
-    console.log("连接成功");
-    client.broadcast.emit("ALL","有客户连接成功")
+    //链接成功
+    handleConnection(client: Socket, ...args: any[]) {
+        console.log("连接成功");
+        client.broadcast.emit("ALL","有客户连接成功")
 
 
-}
+    }
 
-//断开连接
-handleDisconnect(client: Socket) {
-    console.log("断开连接");
-}
+    //断开连接
+    handleDisconnect(client: Socket) {
+        console.log("断开连接");
+    }
 
 
 
